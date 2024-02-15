@@ -1,0 +1,20 @@
+package com.app
+
+class Student {
+	private int studentID
+	private int studentName
+	
+	Student(int ID, String Name) {
+		this.studentID = ID
+		this.studentName = Name
+	}
+	
+	static void main(args) {
+		// TODO Auto-generated method stub
+		Student student = new Student(40,"Jones")
+		student.setstudentID(77)
+		student.setstudentName("John")
+		println(student.getstudentID())
+		println(student.getstudentName())
+	}
+}

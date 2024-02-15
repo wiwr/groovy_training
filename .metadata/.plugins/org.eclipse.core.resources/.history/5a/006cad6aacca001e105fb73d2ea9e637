@@ -1,0 +1,9 @@
+package com.app
+
+class Student {
+
+	static void main(args) {
+		// TODO Auto-generated method stub
+		
+	}
+}

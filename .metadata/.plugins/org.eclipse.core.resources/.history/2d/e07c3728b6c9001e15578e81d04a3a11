@@ -1,0 +1,9 @@
+package com.app
+
+class Switch {
+
+	static void main(args) {
+		// TODO Auto-generated method stub
+		
+	}
+}
