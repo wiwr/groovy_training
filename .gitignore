@@ -10,6 +10,9 @@ target/
  
 # Eclipse
 .metadata
+.project
+.classpath
+.settings
 bin/**
 tmp/**
 tmp/**/*
