@@ -25,5 +25,14 @@ class Example {
 		]
 		println("The full dictionary is " + dict1)
 		println(dict1.age)
+		
+		def list3=(2..10).toList()
+		println(list3)
+		def list4=(0..4).toList()
+		println(list4)
+		def result = [*list3, *list4].toSet().toList()
+		println(result)
+		def result2 = [*list3, *list4].toList()
+		println(result2)
 	}
 }
