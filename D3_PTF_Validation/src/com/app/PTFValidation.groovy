@@ -8,16 +8,52 @@ class ErrorList {
     }
     
     def show() {
-        println("##########  Errors:  ############")
-        listOfErrors.each { line ->
-            println(line)
+		if (listOfErrors.empty) {
+			println("####### Status OK ###############")
+		} else {
+	        println("##########  Errors:  ############")
+	        listOfErrors.each { line ->
+	            println(line)
+	        }
         }
     }
 }
 
+// Define the function before using it
+def checkIfTabsUsed(codeLines, errors) {
+	if (codeLines.orgLine.contains("\t")) {
+		errors.add(codeLines.lineNumber, codeLines.orgLine, "Tab used")
+	}
+}
+
+def checkKeywordsLowercase(codeLines, errors) {
+	def KeywordsList = ["if", "begin", "end", "else if", "while", "string", "real", "integer", "object", "dateti", "me", "break", "continue", "delete", "empty", "messagebox", "select", "sort", "strdate", "unreadblock", "update", "writeblock", "else", "accum", "atoi", "aton", "concat", "count", "date", "eof", "exist", "left", "len", "mid", "ntoa", "readblock", "right", "strstr", "sumtotal", "trim", "trimleft", "trimright", "then", "sum"]
+	KeywordsList.each { keyword ->
+		def pattern = ~/(?i)\b${keyword}\b/
+		def matches = codeLines.trim.findAll(pattern)
+		matches.every {
+			errors.add(codeLines.lineNumber, codeLines.orgLine, "Keyword '${keyword}' not lowercase")
+			println "--------"
+			println it
+			println keyword
+			println it != keyword
+		}
+			//println (matches.every { it.toLowerCase() == keyword })
+		
+	}
+}
+
+// Define the function before using it
+def validateCodeSection(codeLines, errors) {
+	checkIfTabsUsed(codeLines,errors)
+	checkKeywordsLowercase(codeLines, errors)
+}
+
+// Define errors before using it
+ErrorList errors = new ErrorList()
+
 def inputFile = new File('src/com/app/PTF.txt')
 def codeSectionLines = []
-
 def currentSection = null
 def intCountLine = 0
 def bolGeneralSection = false
@@ -56,7 +92,7 @@ inputFile.eachLine { line ->
             break
         case "Code Section":
             currentSection = trimLine
-            bolFieldsOutput = true
+            bolCodeSection = true
             break
         case "Code Lists":
             currentSection = trimLine
@@ -84,30 +120,40 @@ inputFile.eachLine { line ->
                     case "Code Section":
                         println("Code Section")
                         codeSectionLines.add(['lineNumber': intCountLine, 'trim': trimLine, 'orgLine': orgLine])
+						break
+					case "Code Lists":
+						println("Code List")
+						break
+					
                 }
             }
     }
 }
 
-// Define errors before using it
-ErrorList errors = new ErrorList()
-errors.add(1, "test", "test")
-
-// Define the function before using it
-def checkIfTabsUsed(codeLines) {
-    if (codeLines.orgLine.contains("\t")) {
-        errors.add(codeLines.lineNumber, codeLines.orgLine, "Tab used")
-    }
+if (!bolGeneralSection) {
+	errors.add(0, "GeneralSection", "Missing General Section")
 }
-
-// Define the function before using it
-def validateCodeSection(codeLines) {
-    // where original line is required
-    checkIfTabsUsed(codeLines)
+if (!bolBranchInput) {
+	errors.add(0, "BranchInput", "Missing Branch Input")
+}
+if (!bolBranchOutput) {
+	errors.add(0, "BranchOutput", "Missing Branch Output")
+}
+if (!bolFieldsInput) { 
+	errors.add(0, "FieldsInput", "Missing Fields Input")
+}
+if (!bolFieldsOutput) {
+	errors.add(0, "FieldsOutput", "Missing Fields Output")
+}	
+if (!bolCodeSection) {
+	errors.add(0, "CodeSection", "Missing Code Section")
+}
+if (!bolCodeLists) {
+	errors.add(0, "CodeLists", "Missing Code Lists")
 }
 
 codeSectionLines.each { mapLine ->
-    validateCodeSection(mapLine)
+	validateCodeSection(mapLine, errors)
 }
 
 errors.show()
