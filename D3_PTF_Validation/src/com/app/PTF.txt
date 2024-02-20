@@ -2,22 +2,46 @@
   Line in General Section
 
   Branch Input
-  Line in Branch Input
-
+  Branch line
+  
   Branch Output
-  Line in Branch Output
-
+  Branch line
+  
   Fields Input
-  Line in Fields Input
-
+  StringFiled1        String        Free Format
+  StringField2        String        X          
+  StringField3        String                   
+  IntegerField1       Integer       N1         
+  IntegerField2       Integer                
+  DateFiled1          Date/Time     yyyy-mm-dd 
+  DataFiled2          Date/Time     yyyy-mm-dd 
+  
   Fields Output
-  Line in Fields Output
-
+  StringFiled1        String        Free Format
+  StringField2        String        X          
+  StringField3        String                   
+  IntegerField1       Integer       N1         
+  IntegerField2       Integer       N2         
+  DateFiled1          Date/Time                 
+  DataFiled2          Date/Time     yyyy-mm-dd 
+  
   Code Section
   if conditon = something then
   	begin IF BEGIN
      code of 	something ifthen
-  end END If(
+  END end If(
+  end if END If(
+  while(somethig
+  dosdflas "IF" dsldsjfksf
+  IFTHANBEGIN) 
+  BEGIN
+  dsodfs "IF" da;sldkfja "BEGIN" dkslafjd
+  dklfa;sdkfj IF dlasdjfkl BEGIN dlafjsdkl
+
+  somecode
+  end end
+  if condition then
+  new line of code
   
   
 
