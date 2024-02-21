@@ -1,5 +1,5 @@
 package test.groovy
-import main.groovy
+import main.groovy.*
 import spock.lang.*
 
 class CalculateSpec extends Specification {
