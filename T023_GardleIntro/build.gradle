@@ -1,0 +1,22 @@
+plugins {
+	id 'groovy'
+}
+repositories {
+	mavenCentral()
+}
+dependencies {
+	implementation 'org.codehaus.groovy:groovy-all:3.0.20'
+}
+sourceSets {
+	main {
+		groovy {
+			srcDirs = ['src/main/groovy']
+		}
+	}
+}
+task runScript(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'main.groovy.Intro'
+	
+}
+defaultTasks 'runScript'
