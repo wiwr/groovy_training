@@ -1,14 +1,14 @@
 plugins {
-	id 'grovvy'
+	id 'groovy'
 }
 
 repositories {
 	mavenCentral()
 }
 dependencies {
-	implementation 'org.codehause.groovy:groovy-all:3.0.20'
-	testimplementation 'org.spockframework:spock-core:2.4-M1-groovy-3.0'
-	testimplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+	implementation 'org.codehaus.groovy:groovy-all:3.0.20'
+	testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-3.0'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
 sourceSets {
 	test {
