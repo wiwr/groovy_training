@@ -14,7 +14,7 @@
 		</MapSettings>
 		<Input>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
-		</Inptu>
+		</Input>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
@@ -47,7 +47,7 @@
 		</MapSettings>
 		<Input>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
-		</Inptu>
+		</Input>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
@@ -79,7 +79,7 @@
 		</MapSettings>
 		<Input>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
-		</Inptu>
+		</Input>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
@@ -112,7 +112,7 @@
 		</MapSettings>
 		<Input>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
-		</Inptu>
+		</Input>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
