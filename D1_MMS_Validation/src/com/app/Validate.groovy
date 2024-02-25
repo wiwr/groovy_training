@@ -1,6 +1,7 @@
 package com.app
 
 import groovy.xml.*
+import java.io.File
 
 def filePath = "src/MMS.xml"
 
@@ -27,7 +28,30 @@ def readXml(filePath) {
     }
 }
 
+def buildMapFromXml(xmlData) {
+	def resultMap = [:]
+	if (xmlData instanceof groovy.util.Node) {
+		resultMap['root'] = xmlData.name()
+		xmlData.children().each { child -> 
+			println "Child: $child - Type: ${child.getClass()}"
+			if (child instanceof groovy.util.Node) {
+				resultMap[child.name()] = buildMapFromXml(child)
+			} else if (child instanceof String){
+				resultMap['value'] = child
+			}
+		}
+	} else {
+		println "XML data is not of type groovy.util.Node"
+	}
+	return resultMap
+}
+
 def xmlData = readXml(filePath)
+println xmlData.getClass()
 if (xmlData) {
-	println XmlUtil.serialize(xmlData)
+	def resultMap = buildMapFromXml(xmlData)
+	//println resultMap
+	//println XmlUtil.serialize(xmlData)
+} else {
+	println "Failed to read XML data"
 }
