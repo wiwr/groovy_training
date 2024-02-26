@@ -1,7 +1,7 @@
 package com.app
 
 import groovy.xml.*
-import java.io.File
+//import java.io.File
 
 def filePath = "src/MMS.xml"
 
@@ -28,29 +28,44 @@ def readXml(filePath) {
     }
 }
 
-def buildMapFromXml(xmlData) {
-	def resultMap = [:]
-	if (xmlData instanceof groovy.util.Node) {
-		resultMap['root'] = xmlData.name()
-		xmlData.children().each { child -> 
-			println "Child: $child - Type: ${child.getClass()}"
-			if (child instanceof groovy.util.Node) {
-				resultMap[child.name()] = buildMapFromXml(child)
-			} else if (child instanceof String){
-				resultMap['value'] = child
-			}
-		}
-	} else {
-		println "XML data is not of type groovy.util.Node"
-	}
-	return resultMap
+def buildMapFromXml(node) {
+    def map = [:]
+    if (node.attributes()) {
+        node.attributes().each { attr ->
+            map['@' + attr.key] = attr.value
+        }
+    }
+    if (node.children()) {
+        node.children().each { child ->
+            if (child instanceof String) {
+                map = child
+            } else {
+                if (child.children().size() > 1 || child.attributes() || child.text()) {
+                    map[child.name()] = buildMapFromXml(child)
+                } else {
+                    if (map[child.name()]) {
+                        if (map[child.name()] instanceof List) {
+                            map[child.name()] << child.text()
+                        } else {
+                            map[child.name()] = [map[child.name()], child.text()]
+                        }
+                    } else {
+                        map[child.name()] = child.text()
+                    }
+                }
+            }
+        }
+    } else if (node.text()) {
+        map = node.text()
+    }
+    return map
 }
 
 def xmlData = readXml(filePath)
 println xmlData.getClass()
 if (xmlData) {
 	def resultMap = buildMapFromXml(xmlData)
-	//println resultMap
+	println resultMap
 	//println XmlUtil.serialize(xmlData)
 } else {
 	println "Failed to read XML data"
