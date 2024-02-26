@@ -6,43 +6,55 @@
 			<MapAudit Switch="OFF">
 				<BurstAudit/>
 			</MapAudit>
-			<MapTrace Swithc="OFF">
+			<MapTrace Switch="ON">
 				<ContentTrace.File />
 			</MapTrace>
 			<WorkSpace.File PageSize="64" PageCount="8" DataSize="64">
 			</WorkSpace.File>
 		</MapSettings>
 		<Input>
-			<Schema cardnumber="1" cardname="In_GRNM"/>
+			<Schema cardnumber="1" cardname="In_Mian"/>
 		</Input>
 		<Output>
-			<Schema cardnumber="1" cardname="In_GRNM"/>
+			<Schema cardnumber="1" cardname="Out_GRNM"/>
+			<MapRule rulenumber="1">
+				<objectset>Name</objectset>
+				<objectrule>=NONE</objectrule>
+			</MapRule>
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
+			<MapRule rulenumber="3">
+				<objectset>Name</objectset>
+				<objectrule>=NONE</objectrule>
+			</MapRule>
+			<MapRule rulenumber="4">
+				<objectset>Name</objectset>
+				<objectrule>=NONE</objectrule>
+			</MapRule>
+			<MapRule rulenumber="5">
+				<objectset>Name</objectset>
+				<objectrule>=NONE</objectrule>
+			</MapRule>
 		</Output>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 	</Map>
-	<Map name="TEST_MAPNAME_MAIN_map">
+	<Map name="TEST_MAPNAME_MAIN2_fx">
 		<MapSettings>
 			<MapAudit Switch="OFF">
 				<BurstAudit/>
 			</MapAudit>
-			<MapTrace Swithc="OFF">
+			<MapTrace Switch="OFF">
 				<ContentTrace.File />
 			</MapTrace>
-			<WorkSpace.File PageSize="64" PageCount="8" DataSize="64">
+			<WorkSpace.File PageSize="65" PageCount="8" DataSize="64">
 			</WorkSpace.File>
 		</MapSettings>
 		<Input>
@@ -53,28 +65,25 @@
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
 		</Output>
 	</Map>
-	<Map name="TEST_MAPNAME_MAIN_map">
+	<Map name="TEST_MAPNAME_MAIN3_fx">
 		<MapSettings>
 			<MapAudit Switch="OFF">
 				<BurstAudit/>
 			</MapAudit>
-			<MapTrace Swithc="OFF">
+			<MapTrace Switch="OFF">
 				<ContentTrace.File />
 			</MapTrace>
-			<WorkSpace.File PageSize="64" PageCount="8" DataSize="64">
+			<WorkSpace.File PageSize="64" PageCount="9" DataSize="64">
 			</WorkSpace.File>
 		</MapSettings>
 		<Input>
@@ -85,29 +94,25 @@
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 	</Map>
-	<Map name="TEST_MAPNAME_MAIN_map">
+	<Map name="TEST_MAPNAME_MAIN4_fx">
 		<MapSettings>
 			<MapAudit Switch="OFF">
 				<BurstAudit/>
 			</MapAudit>
-			<MapTrace Swithc="OFF">
+			<MapTrace Switch="ON">
 				<ContentTrace.File />
 			</MapTrace>
-			<WorkSpace.File PageSize="64" PageCount="8" DataSize="64">
+			<WorkSpace.File PageSize="64" PageCount="8" DataSize="4">
 			</WorkSpace.File>
 		</MapSettings>
 		<Input>
@@ -118,18 +123,14 @@
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 		<Output>
 			<Schema cardnumber="1" cardname="In_GRNM"/>
 			<MapRule rulenumber="2">
 				<objectset>Name</objectset>
 				<objectrule>=NONE</objectrule>
-				
 			</MapRule>
-
 		</Output>
 	</Map>
 </MMS>
